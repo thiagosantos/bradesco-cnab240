@@ -4,7 +4,7 @@ def trailer_arquivo(dic_trailer):
 
     odict = default_trailer_arquivo().update(dic_trailer)
 
-    trailer_str = '{:.3}{:.4}{:.1}{:.9}{:.6}{:.6}{:.6}{:.205}'
+    trailer_str = '{:>3.3}{:>4.4}{:>1.1}{:>9.9}{:>6.6}{:>6.6}{:>6.6}{:>205.205}'
 
     return trailer_str.format(*odict.values())
 
