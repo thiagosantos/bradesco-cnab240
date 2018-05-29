@@ -1,3 +1,10 @@
-import cnab240.core.header_arquivo as _c
+import collections
+import cnab240.core.header_arquivo as ha
+import cnab240.remessa_pagamento as rp
 
-print (_c.header_arquivo({'thiago':111}) )
+
+
+bla = dict()
+bla['header_arquivo'] = ha.default_header_arquivo()
+
+print ( rp.generate(bla) )

@@ -2,39 +2,11 @@ import collections
 
 def header_arquivo(dic_header):
 
-    #@todo fazer o merge da entrada com o dicionario ordenado default
-    merged_dict = default_header_arquivo()
-   
-    header_str = '{:.3}'
-    header_str = header_str+ '{:.4}'
-    header_str = header_str+ '{:.1}'
-    header_str = header_str+ '{:.9}'
-    header_str = header_str+ '{:.1}'
-    header_str = header_str+ '{:.14}'
-    header_str = header_str+ '{:.20}'
-    header_str = header_str+ '{:.5}'
-    header_str = header_str+ '{:.1}'
-    header_str = header_str+ '{:.12}'
-    header_str = header_str+ '{:.1}'
-    header_str = header_str+ '{:.1}'
-    header_str = header_str+ '{:.30}'
-    header_str = header_str+ '{:.30}'
-    header_str = header_str+ '{:.10}'
-    header_str = header_str+ '{:.1}'
-    header_str = header_str+ '{:.8}'
-    header_str = header_str+ '{:.6}'
-    header_str = header_str+ '{:.6}'
-    header_str = header_str+ '{:.3}'
-    header_str = header_str+ '{:.5}'
-    header_str = header_str+ '{:.20}'
-    header_str = header_str+ '{:.20}'
-    header_str = header_str+ '{:.29}'
-
-    header_str = header_str.format(*merged_dict.values())
-
-
-    return header_str
-
+    #merge
+    merged_dict = dic_header# default_header_arquivo().update( dic_header )
+    header_str = '{:>3.3}{:>3.4}{:>1.1}{:>9.9}{:>1.1}{:>14.14}{:>20.20}{:>5.5}{:>1.1}{:>12.12}{:>1.1}{:>1.1}{:>30.30}{:>30.30}{:>10.10}{:>1.1}{:>8.8}{:>6.6}{:>6.6}{:>3.3}{:>5.5}{:>20.20}{:>20.20}{:>29.29}'
+    
+    return header_str.format(*merged_dict.values())
 
 def default_header_arquivo():
     
