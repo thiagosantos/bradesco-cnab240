@@ -24,7 +24,7 @@ def default_header_lote():
     odict['empresa_inscricao_numero'] =''
     odict['empresa_convenio'] =''
     
-    odict['empresa_conta_corrente_agencia_numero'] =''
+    odict['empresa_conta_corrente_agencia_codigo'] =''
     odict['empresa_conta_corrente_agencia_dv'] =''
     odict['empresa_conta_corrente_conta_numero'] =''
     odict['empresa_conta_corrente_conta_dv'] =''
