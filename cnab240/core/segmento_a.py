@@ -11,7 +11,7 @@ def parse(dic_lote):
 def default():
 
     odict = collections.OrderedDict()
-    datetime_now = datetime.now()
+    
 
     odict['banco'] = '237' #G001
     odict['lote'] = '0000' #G002
@@ -35,6 +35,7 @@ def default():
     odict['credito_quantidade_moeda'] = '' #G041
     odict['valor_pagamento'] = '' #P010
     odict['credito_nosso_numero'] = '' #G043
+
     odict['credito_data_real'] = '' #P003
     odict['credito_valor_real'] = '' #P004
 
