@@ -15,9 +15,11 @@ def default_trailer_arquivo():
     odict['banco'] = '237'
     odict['lote'] = '0000'
     odict['registro'] = '2'
-    odict['cnab_04'] = '         '
+    odict['cnab_049'] = '' #nove espacos em branco
     odict['quantidade_lotes']  = '000000'
     odict['quantidade_registros']  = '000000'
     odict['quantidade_contas_conciliacao']  = '000000'
+    odict['quantidade_contas_conciliacao']  = '000000'
+    odict['cnab_089'] = '' #205 espacos em branco
 
     return odict
