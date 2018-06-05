@@ -18,7 +18,7 @@ def default_header_arquivo():
     odict['lote'] = '0000' #G002
     odict['registro'] = '0' #G003
     odict['cnab_04'] = '         ' 
-    odict['empresa_inscricao_tipo'] ='1'
+    odict['empresa_inscricao_tipo'] ='2' #1 Pessoa Fisica, 2 Pessoa Juridica
     odict['empresa_inscricao_numero'] =''
     odict['empresa_convenio'] =''
     odict['empresa_conta_corrente_agencia'] = ''

@@ -20,7 +20,7 @@ def default_header_lote():
     odict['forma_lancamento'] = '' #tipo do servico #G029 --01
     odict['versao_layout_lote'] = '045' #tipo do servico #G030
     odict['cnab_081'] = ''
-    odict['empresa_inscricao_tipo'] ='1'
+    odict['empresa_inscricao_tipo'] ='2' #1 Pessoa Fisica, 2 Pessoa Juridica
     odict['empresa_inscricao_numero'] =''
     odict['empresa_convenio'] =''
     

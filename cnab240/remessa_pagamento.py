@@ -2,6 +2,7 @@ import cnab240.core.header_arquivo as ha
 import cnab240.core.header_lote as hl
 import cnab240.core.trailer_arquivo as ta
 import cnab240.core.segmento_a as sega
+import cnab240.core.trailer_lote as tl
 
 def generate(odict_entrada):
 
@@ -14,7 +15,7 @@ def generate(odict_entrada):
 
     list_segmento_a = []
     somatoria_de_valores = 0 #inicial 0 centavos - #P0007
-    sequencial_registro = 1
+    sequencial_registro = 0
     for conta in odict_entrada['segmento_a_contas']:
         odic_sega = sega.default()
 
@@ -34,6 +35,13 @@ def generate(odict_entrada):
         somatoria_de_valores = somatoria_de_valores + conta['valor_centavos']
     
 
+    odic_trailer_lote = tl.default()
+    odic_trailer_lote['lote'] = lote
+    odic_trailer_lote['somatoria_valores'] = somatoria_de_valores
+
+    str_trailer_lote = tl.parse( odic_trailer_lote )
+
+
     odic_trailer = ta.default()
     odic_trailer['lote'] = lote
     #1 obrigatorio do header do arquivo
@@ -41,12 +49,13 @@ def generate(odict_entrada):
     #soma 1 obrigatorio do trailer do lote
     #soma 1 obrigatorio do trailer do arquivo
     #soma sequencial do segmento a
-    odict['quantidade_registros'] = 1 + 1 + 1 + 1 + sequencial_registro
+    odic_trailer['quantidade_registros'] = 1 + 1 + 1 + 1 + sequencial_registro
 
+    str_trailer_arquivo = ta.parse(odic_trailer)
 
-    str_segmento = '\n'.join(list_segmento_a)
+    str_segmento = '\r\n'.join(list_segmento_a)
     #str_trailer = ta.trailer_arquivo( odict_entrada['trailer_arquivo'])
-    _str = str_header+"\n"+str_header_lote+'\n'+str_segmento
+    _str = str_header+"\r\n"+str_header_lote+'\r\n'+str_segmento+'\r\n'+str_trailer_lote+'\r\n'+str_trailer_arquivo
 
     return _str
   
