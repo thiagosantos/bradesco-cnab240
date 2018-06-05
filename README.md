@@ -4,6 +4,10 @@ Padrão Bradesco Multipag CNAB240 para folha de pagamento, remessa apenas.
 O CNAB240 é um padrão definido pela FEBRABAN e implementado por bancos Brasileiros para a troca de informações.
 A estrutura dele é dado:
 
+Ter em mente:
+    Num  - alinhado a direita com zeros a esquerda
+    Alfa - alinhado a esquerda com espaços em branco a direita
+
 ARQUIVO.txt (1)
         Header de Arquivo - TIPO 0 (1)
             LOTE (1-N)

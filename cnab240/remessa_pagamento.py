@@ -5,15 +5,21 @@ import cnab240.core.segmento_a as sega
 
 def generate(odict_entrada):
 
+    lote = '1'
+    odict_entrada['header_arquivo']['lote'] = lote
+    odict_entrada['header_lote']['lote'] = lote
     
     str_header = ha.header_arquivo( odict_entrada['header_arquivo'] )    
     str_header_lote = hl.header_lote( odict_entrada['header_lote'] )
 
     list_segmento_a = []
+    somatoria_de_valores = 0 #inicial 0 centavos - #P0007
+    sequencial_registro = 1
     for conta in odict_entrada['segmento_a_contas']:
         odic_sega = sega.default()
 
-
+        odic_sega['lote'] = lote
+        odic_sega['sequencial_registro_lote'] = str( sequencial_registro )
         odic_sega['favorecido_banco'] = conta['banco'] #P002
         odic_sega['favorecido_conta_corrente_agencia_codigo'] = conta['agencia'] #G008    
         odic_sega['favorecido_conta_corrente_conta_numero'] = conta['conta'] #G010
@@ -21,14 +27,26 @@ def generate(odict_entrada):
         odic_sega['favorecido_nome'] = conta['favorecido_nome'] #G013
 
         odic_sega['credito_data_pagamento'] = conta['data_pagamento'] #P009
-        odic_sega['valor_pagamento'] = conta['valor_centavos'] #P010
-        print (odic_sega )
-        exit()
+        odic_sega['valor_pagamento'] = str(conta['valor_centavos']) #P010
+       
         list_segmento_a.append( sega.parse(odic_sega) )
+        sequencial_registro = sequencial_registro + 1
+        somatoria_de_valores = somatoria_de_valores + conta['valor_centavos']
+    
+
+    odic_trailer = ta.default()
+    odic_trailer['lote'] = lote
+    #1 obrigatorio do header do arquivo
+    #soma 1 obrigatorio do header do lote
+    #soma 1 obrigatorio do trailer do lote
+    #soma 1 obrigatorio do trailer do arquivo
+    #soma sequencial do segmento a
+    odict['quantidade_registros'] = 1 + 1 + 1 + 1 + sequencial_registro
+
 
     str_segmento = '\n'.join(list_segmento_a)
     #str_trailer = ta.trailer_arquivo( odict_entrada['trailer_arquivo'])
-    _str = str_header+"\n"+str_header_lote+str_segmento
+    _str = str_header+"\n"+str_header_lote+'\n'+str_segmento
 
     return _str
   

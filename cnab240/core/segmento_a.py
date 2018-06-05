@@ -4,7 +4,7 @@ def parse(dic_lote):
 
     #merge
     merged_dict = dic_lote# default_header_arquivo().update( dic_header )
-    header_str = '{:<3.3}{:<4.4}{:<1.1}{:<5.5}{:<1.1}{:<1.1}{:<2.2}{:<3.3}{:<3.3}{:<5.5}{:<1.1}{:<12.1}{:<1.1}{:<1.1}{:<30.30}{:<20.20}{:<8.8}{:<3.3}{:<15.15}{:0<15.15}{:<20.20}{:<8.8}{:<15.15}{:<40.40}{:<2.2}{:<5.5}{:<2.2}{:<3.3}{:<1.1}{:<10.10}'
+    header_str = '{:<3.3}{:0>4.4}{:<1.1}{:0>5.5}{:<1.1}{:<1.1}{:<2.2}{:<3.3}{:<3.3}{:0>5.5}{:<1.1}{:0>12.12}{:<1.1}{:<1.1}{:<30.30}{:<20.20}{:<8.8}{:<3.3}{:<15.15}{:0>15.15}{:<20.20}{:<8.8}{:<15.15}{:<40.40}{:<2.2}{:<5.5}{:<2.2}{:<3.3}{:<1.1}{:<10.10}'
     
     return header_str.format(*merged_dict.values())
 
@@ -14,7 +14,7 @@ def default():
     
 
     odict['banco'] = '237' #G001
-    odict['lote'] = '0000' #G002
+    odict['lote'] = '' #G002
     odict['registro'] = '3' #G003
     odict['sequencial_registro_lote'] = '1' #G038
     odict['codigo_segmento_registro_detalhe'] = 'A' #G039
@@ -36,15 +36,16 @@ def default():
     odict['valor_pagamento'] = '' #P010
     odict['credito_nosso_numero'] = '' #G043
 
-    odict['credito_data_real'] = '' #P003
-    odict['credito_valor_real'] = '' #P004
+    odict['credito_data_real'] = '' #P003 - preenchido somente no arquivo de retorno
+    odict['credito_valor_real'] = '' #P004 - preenchido somente no arquivo de retorno
 
     odict['informacao2'] = '' #P031
     odict['codigo_finalidade_doc'] = ''
     odict['codigo_finalidade_ted'] = ''
     odict['codigo_finalidade_complementar'] = ''
     odict['cnab_283a'] = ''
-    odict['aviso'] = ''
+    odict['aviso'] = '0' #P006 - 0 nao emite aviso,'2' emite aviso somente remetente, '5' emite aviso somente ao favorecido, 
+                         #'6' emite aviso favorecido e remetente, '7' emite aviso ao favorecido e duas vias para o remetente
     odict['ocorrencias'] = ''
 
     return odict
