@@ -34,7 +34,7 @@ def default_header_arquivo():
     odict['arquivo_hora_geracao'] = datetime_now.strftime("%H%M%f")
     odict['arquivo_nsa'] ='000001'
     odict['arquivo_layout'] ='089'
-    odict['arquivo_densidade'] =''                
+    odict['arquivo_densidade'] ='01600'                
     odict['reservado_banco'] =''
     odict['reservado_empresa'] =''
     odict['cnab_24'] =''    

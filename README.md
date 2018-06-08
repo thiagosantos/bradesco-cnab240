@@ -1,6 +1,8 @@
 # bradesco-cnab240
 Padrão Bradesco Multipag CNAB240 para folha de pagamento, remessa apenas.
 
+No Bradesco Net Empresas, Transmissão de Arquivos, escolha a opção MULTIPAG (você precisa ter essa opção habilitada com a sua agência). Enviar por "FOLHA DE PAGAMENTO 240" não vai funcionar, palavra dita com experiência.
+
 O CNAB240 é um padrão definido pela FEBRABAN e implementado por bancos Brasileiros para a troca de informações.
 A estrutura dele é dado:
 
@@ -26,7 +28,7 @@ Pagamento crédito em conta, cheque, op, DOC ou pagamento com autenticação
     Segmento
         Remessa
             A (obrigatório)
-            B (opcional)
+            B (opcional) #Apesar de no PDF ter a tabela dizendo que é opcional, é obrigatório, de verdade.
             C (opcional)
             5 (opcional)
         

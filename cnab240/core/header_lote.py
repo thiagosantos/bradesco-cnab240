@@ -13,11 +13,11 @@ def default_header_lote():
     odict = collections.OrderedDict()
 
     odict['banco'] = '237'
-    odict['lote'] = '0000'
+    odict['lote'] = '1'
     odict['registro'] = '1' #tipo de registro #G003
     odict['operacao'] = 'C' #tipo da operacao #G028
-    odict['servico'] = '' #tipo do servico #G025
-    odict['forma_lancamento'] = '' #tipo do servico #G029 --01
+    odict['servico'] = '30' #tipo do servico #G025
+    odict['forma_lancamento'] = '01' #tipo do servico #G029 --01
     odict['versao_layout_lote'] = '045' #tipo do servico #G030
     odict['cnab_081'] = ''
     odict['empresa_inscricao_tipo'] ='2' #1 Pessoa Fisica, 2 Pessoa Juridica

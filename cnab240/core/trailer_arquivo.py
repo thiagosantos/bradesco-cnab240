@@ -14,7 +14,7 @@ def default():
     odict = collections.OrderedDict()
 
     odict['banco'] = '237'
-    odict['lote'] = '0000'
+    odict['lote'] = '9999'
     odict['registro'] = '9'
     odict['cnab_049'] = '' #nove espacos em branco
     odict['quantidade_lotes']  = '1' #G049

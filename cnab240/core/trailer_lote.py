@@ -17,7 +17,7 @@ def default():
     odict['lote'] = '0000'
     odict['registro'] = '5'
     odict['cnab_045'] = '' #nove espacos em branco
-    odict['quantidade_lotes']  = '1' #G049
+    odict['quantidade_registro_lote']  = '1' #G049
     odict['somatoria_valores']  = '0' #P007
     odict['somatoria_quantidade_moeda_valores']  = '0' #G058
     odict['numero_aviso_debito']  = '0' #G066    

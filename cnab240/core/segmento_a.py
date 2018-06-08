@@ -4,7 +4,7 @@ def parse(dic_lote):
 
     #merge
     merged_dict = dic_lote# default_header_arquivo().update( dic_header )
-    header_str = '{:<3.3}{:0>4.4}{:<1.1}{:0>5.5}{:<1.1}{:<1.1}{:<2.2}{:<3.3}{:<3.3}{:0>5.5}{:<1.1}{:0>12.12}{:<1.1}{:<1.1}{:<30.30}{:<20.20}{:<8.8}{:<3.3}{:0>15.15}{:0>15.15}{:<20.20}{:<8.8}{:<15.15}{:<40.40}{:<2.2}{:<5.5}{:<2.2}{:<3.3}{:<1.1}{:<10.10}'
+    header_str = '{:0>3.3}{:0>4.4}{:0>1.1}{:0>5.5}{:<1.1}{:<1.1}{:<2.2}{:<3.3}{:<3.3}{:0>5.5}{:<1.1}{:0>12.12}{:<1.1}{:<1.1}{:<30.30}{:<20.20}{:<8.8}{:<3.3}{:0>15.15}{:0>15.15}{:<20.20}{:0>8.8}{:0>15.15}{:<40.40}{:<2.2}{:<5.5}{:<2.2}{:<3.3}{:<1.1}{:<10.10}'
     
     return header_str.format(*merged_dict.values())
 
@@ -20,7 +20,7 @@ def default():
     odict['codigo_segmento_registro_detalhe'] = 'A' #G039
     odict['servico_movimento_tipo'] = '0' #G060 - 0 inclusao, 1 consulta, 3 estorno, 5 alteracao, 7 liquidacao, 9 exclusao
     odict['servico_movimento_codigo'] = '00' #G061 - 00 inclusao de registro detalhe liberado
-    odict['favorecido_camara'] = '018' #P001 - 018 TED (STR, CIP), 700 DOC (COMPE) e 888 - TED (STR/CIP) *mais info no P001
+    odict['favorecido_camara'] = '000' #P001 - 000 credito em conta, 018 TED (STR, CIP), 700 DOC (COMPE) e 888 - TED (STR/CIP) *mais info no P001
     odict['favorecido_banco'] = '000' #P002
     odict['favorecido_conta_corrente_agencia_codigo'] = '' #G008
     odict['favorecido_conta_corrente_agencia_dv'] = '' #G009
