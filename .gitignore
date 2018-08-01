@@ -104,3 +104,6 @@ venv.bak/
 .mypy_cache/
 teste.py
 parser_planus
+
+
+cnab240/confs/*.prod.conf

@@ -22,10 +22,12 @@ def default_header_arquivo():
     odict['empresa_inscricao_numero'] =''
     odict['empresa_convenio'] =''
     odict['empresa_conta_corrente_agencia'] = ''
-    odict['empresa_conta_corrente_agencia_codigo'] =''
     odict['empresa_conta_corrente_agencia_dv'] =''
     odict['empresa_conta_corrente_conta_numero'] =''
     odict['empresa_conta_corrente_conta_dv'] =''
+    
+    odict['empresa_conta_corrente_digito_verificador'] = '' #tipo de registro #G012
+
     odict['empresa_nome'] =''
     odict['nome_banco'] =''
     odict['cnab_15'] = '          '
