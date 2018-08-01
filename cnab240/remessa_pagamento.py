@@ -37,6 +37,7 @@ def generate(odict_entrada):
         odic_segb['dados_complementares_favorecido_inscricao_tipo'] = '1' #G005
         odic_segb['dados_complementares_favorecido_inscricao_numero'] = conta['cpf'] #cpf ou cnpj
 
+
         #endereco da empresa
         odic_segb['lote'] = lote
         odic_segb['sequencial_registro_lote'] = str(sequencial_registro+2)

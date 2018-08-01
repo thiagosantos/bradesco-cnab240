@@ -22,6 +22,7 @@ def default():
 
     odict['dados_complementares_favorecido_inscricao_tipo'] = '1' #G005
     odict['dados_complementares_favorecido_inscricao_numero'] = '' #cpf ou cnpj
+
     odict['dados_complementares_favorecido_logradouro'] = '' #
     odict['dados_complementares_favorecido_numero'] = '' #
     odict['dados_complementares_favorecido_complemento'] = '' #
