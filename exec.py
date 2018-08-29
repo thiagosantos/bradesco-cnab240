@@ -10,10 +10,8 @@ import cnab240.core.header_lote as hl
 import cnab240.remessa_pagamento as rp
 
 
-
-
-
 def check_conf(conf):
+    """Verifica se o conf passado por parametro existe. Existindo retorna o conf, caso contrario retorna False."""
     conf_file = "./cnab240/confs/"+conf+".prod.conf"
     if(not os.path.isfile(conf_file)):
         print ("Arquivo de configuracao passado não encontrado")
@@ -24,7 +22,7 @@ def check_conf(conf):
 
 
 def generate(conf=None, arquivo_processamento=None, driver=None):
-
+    """Organiza e gera a partir dos parametros enviados o arquivo de remessa"""
     conf_json = check_conf(conf)
     if( conf_json == False ):
         return
@@ -78,6 +76,3 @@ if not args.arquivo:
 generate(args.conf, args.arquivo, args.driver)
 
 
-#bla = dict()
-#bla['header_arquivo'] = ha.default_header_arquivo()
-#print ( rp.generate(bla) )
