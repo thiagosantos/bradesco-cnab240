@@ -1,9 +1,12 @@
 import argparse
 import json
 import os
+import importlib
 
 import collections
+import cnab240.drivers as drivers
 import cnab240.core.header_arquivo as ha
+import cnab240.core.header_lote as hl
 import cnab240.remessa_pagamento as rp
 
 
@@ -20,7 +23,7 @@ def check_conf(conf):
 
 
 
-def generate(conf=None, arquivo_processamento=None):
+def generate(conf=None, arquivo_processamento=None, driver=None):
 
     conf_json = check_conf(conf)
     if( conf_json == False ):
@@ -31,10 +34,32 @@ def generate(conf=None, arquivo_processamento=None):
     
     #vamos iterar sobre o conf_json e alimentar o odict_ha e o odict_hl
     for indice in conf_json.keys():
-        print ( indice ) 
+        if(indice in odict_ha.keys()) :
+            odict_ha[ indice ] = conf_json[ indice ]
+        
+        if( indice in odict_hl.keys() ):
+            odict_hl[ indice ] = conf_json[ indice ]
     
+    #vamos fazer a leitura das contas
+    #carregamento automatico do modulo
+    try:
+        modname = "cnab240.drivers."+driver
+        module = importlib.import_module( modname )
+        contas = module.exec( arquivo_processamento )      
+
+    except Exception as e:
+        #Caso nao consiga carregar o modulo
+        print ("Driver '"+driver+"' não encontrado")
+        return
 
 
+    bla = dict()
+    bla['header_arquivo'] = odict_ha
+    bla['header_lote'] = odict_hl
+    bla['segmento_a_contas'] = contas
+
+    #manda processar
+    print ( rp.generate(bla), end='' ) 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-c", "--conf",     help="nome do arquivo de configuracao antes do '.prod.conf'")
@@ -50,7 +75,7 @@ if not args.arquivo:
     print ("Arquivo de entrada é obrigatório")    
     exit()
 
-generate(args.conf, args.arquivo)
+generate(args.conf, args.arquivo, args.driver)
 
 
 #bla = dict()
