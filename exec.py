@@ -11,7 +11,12 @@ import cnab240.remessa_pagamento as rp
 
 
 def check_conf(conf):
-    """Verifica se o conf passado por parametro existe. Existindo retorna o conf, caso contrario retorna False."""
+    """Verifica se o conf passado por parametro existe. Existindo retorna o conf, caso contrario retorna False.
+    
+    Keyword arguments:
+    conf -- nome do arquivo de configuracao sem o ".prod.conf"
+    """
+
     conf_file = "./cnab240/confs/"+conf+".prod.conf"
     if(not os.path.isfile(conf_file)):
         print ("Arquivo de configuracao passado não encontrado")
@@ -22,7 +27,14 @@ def check_conf(conf):
 
 
 def generate(conf=None, arquivo_processamento=None, driver=None):
-    """Organiza e gera a partir dos parametros enviados o arquivo de remessa"""
+    """Organiza e gera a partir dos parametros enviados o arquivo de remessa.
+    
+    Keyword arguments:
+    conf -- nome do arquivo de configuracao sem o ".prod.conf"
+    arquivo_processamento -- caminho para o arquivo que será processado
+    driver -- driver que será utilizado para a leitura correta do arquivo_processamento (csv, default)
+    """
+
     conf_json = check_conf(conf)
     if( conf_json == False ):
         return
@@ -73,6 +85,8 @@ if not args.arquivo:
     print ("Arquivo de entrada é obrigatório")    
     exit()
 
+
 generate(args.conf, args.arquivo, args.driver)
+
 
 
