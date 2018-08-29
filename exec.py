@@ -9,15 +9,16 @@ import cnab240.remessa_pagamento as rp
 
 
 
+
 def check_conf(conf):
     conf_file = "./cnab240/confs/"+conf+".prod.conf"
     if(not os.path.isfile(conf_file)):
         print ("Arquivo de configuracao passado não encontrado")
         return False
 
-    arquivo_json = open(conf_file,"r")
+    return json.load(open(conf_file,"r"))
 
-    return json.load(arquivo_json)
+
 
 def generate(conf=None, arquivo_processamento=None):
 
@@ -25,14 +26,20 @@ def generate(conf=None, arquivo_processamento=None):
     if( conf_json == False ):
         return
 
-    print (conf_json)
+    odict_ha = ha.default_header_arquivo()    
+    odict_hl = hl.default_header_lote()
+    
+    #vamos iterar sobre o conf_json e alimentar o odict_ha e o odict_hl
+    for indice in conf_json.keys():
+        print ( indice ) 
+    
 
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-c", "--conf", help="nome do arquivo de configuracao antes do '.prod.conf'")
-parser.add_argument("-a", "--arquivo", help="caminho do arquivo de entrada que será usado para processamento")
-parser.add_argument("-d", "--driver", help="driver para tratar o arquivo de entrada", default="csv")
+parser.add_argument("-c", "--conf",     help="nome do arquivo de configuracao antes do '.prod.conf'")
+parser.add_argument("-a", "--arquivo",  help="caminho do arquivo de entrada que será usado para processamento")
+parser.add_argument("-d", "--driver",   help="driver para tratar o arquivo de entrada", default="csv")
 args = parser.parse_args()
 
 if not args.conf:
