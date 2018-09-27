@@ -30,7 +30,7 @@ def generate(conf=None, arquivo_processamento=None, driver=None):
     """Organiza e gera a partir dos parametros enviados o arquivo de remessa.
     
     Keyword arguments:
-    conf -- nome do arquivo de configuracao sem o ".prod.conf"
+    conf -- nome do arquivo de configuracao sem o ".prod.conf"    
     arquivo_processamento -- caminho para o arquivo que será processado
     driver -- driver que será utilizado para a leitura correta do arquivo_processamento (csv, default)
     """
@@ -75,7 +75,14 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-c", "--conf",     help="nome do arquivo de configuracao antes do '.prod.conf'")
 parser.add_argument("-a", "--arquivo",  help="caminho do arquivo de entrada que será usado para processamento")
 parser.add_argument("-d", "--driver",   help="driver para tratar o arquivo de entrada", default="csv")
+parser.add_argument("-l", "--list",     help="combinado com qualquer outro argumento lista os confs, drivers disponiveis e arquivo passado", default=None)
 args = parser.parse_args()
+
+
+#imprimir a lista de configuracoes, drivers e arquivo passado por parametro
+#if args.list:
+#    if parser.print_help
+#    exit()
 
 if not args.conf:
     print ("Arquivo de configuracao é obrigatório")
