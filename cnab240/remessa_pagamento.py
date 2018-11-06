@@ -28,7 +28,23 @@ def generate(odict_entrada):
         odic_sega['favorecido_conta_corrente_conta_numero'] = conta['conta'] #G010
         odic_sega['favorecido_conta_corrente_conta_dv'] = conta['conta_dv'] #G011    
         odic_sega['favorecido_nome'] = conta['favorecido_nome'] #G013
-        odic_sega['credito_seu_numero'] = conta['cpf']+str(datetime.now().strftime("%d%m%y"))
+        """
+        Seu número crédito. 
+        Número do documento atribuido pela impresa, serve para identificar o pagamento usando um
+        identificador com 20 caracteres.
+        Se o valor não for passado como parametro do arquivo de entrada, adotaremos o padrao a seguir:
+        CPF (11 digitos) + ANO (com dois caracteres) + dia do ano (ex: 309, equivale a 5 de novembro para o ANO de 2018)
+        + Hora (padrão 24 horas) + minutos (com dois digitos)
+        
+        00000000000 18 309 13 02
+        00000000000183091302
+        """
+        seu_numero_complemento = str(datetime.now().strftime("%y")) + str( datetime.now().timetuple().tm_yday ) + str(datetime.now().strftime("%H%M"))
+        if('credito_seu_numero' in conta.keys()):
+            #forço ao limite de 20 caracteres para não atrapalhar a montagem dos arquivos
+            odic_sega['credito_seu_numero'] = conta['credito_seu_numero'][0:20]
+        else:
+            odic_sega['credito_seu_numero'] = conta['cpf'] + seu_numero_complemento #G064
 
         odic_sega['credito_data_pagamento'] = conta['data_pagamento'] #P009
         odic_sega['valor_pagamento'] = str(conta['valor_centavos']) #P010
