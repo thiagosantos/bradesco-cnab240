@@ -60,14 +60,14 @@ def generate(odict_entrada):
         odic_segb['dados_complementares_favorecido_logradouro'] = odict_entrada['header_lote']['empresa_endereco_logradouro'] #
         odic_segb['dados_complementares_favorecido_numero'] = odict_entrada['header_lote']['empresa_endereco_numero'] #
         odic_segb['dados_complementares_favorecido_complemento'] = odict_entrada['header_lote']['empresa_endereco_complemento'] #
-        odic_segb['dados_complementares_favorecido_bairro'] = 'SAO CRISTOVAO' #
+        odic_segb['dados_complementares_favorecido_bairro'] = odict_entrada['header_lote']['empresa_endereco_bairro']
         odic_segb['dados_complementares_favorecido_cidade'] = odict_entrada['header_lote']['empresa_endereco_cidade'] #
         odic_segb['dados_complementares_favorecido_cep'] = odict_entrada['header_lote']['empresa_endereco_cep'] #
         odic_segb['dados_complementares_favorecido_cep_complemento'] = odict_entrada['header_lote']['empresa_endereco_cep_complemento'] #
         odic_segb['dados_complementares_favorecido_estado'] = odict_entrada['header_lote']['empresa_endereco_estado'] #
        
-        list_segmento_a.append( sega.parse(odic_sega ) )
-        list_segmento_a.append( segb.parse(odic_segb ) )
+        list_segmento_a.append(sega.parse(odic_sega))
+        list_segmento_a.append(segb.parse(odic_segb))
 
         sequencial_registro = sequencial_registro + 2
         somatoria_de_valores = somatoria_de_valores + conta['valor_centavos']
