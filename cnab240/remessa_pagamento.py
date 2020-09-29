@@ -35,8 +35,8 @@ def generate(odict_entrada, codigo_banco=None):
         odic_sega['favorecido_conta_corrente_conta_dv'] = conta['conta_dv'] #G011
         odic_sega['favorecido_nome'] = conta['favorecido_nome'] #G013
         """
-        Seu número crédito.
-        Número do documento atribuido pela impresa, serve para identificar o pagamento usando um
+        Seu número crédito. 
+        Número do documento atribuido pela empresa, serve para identificar o pagamento usando um
         identificador com 20 caracteres.
         Se o valor não for passado como parametro do arquivo de entrada, adotaremos o padrao a seguir:
         CPF (11 digitos) + ANO (com dois caracteres) + dia do ano (ex: 309, equivale a 5 de novembro para o ANO de 2018)
@@ -105,3 +105,4 @@ def generate(odict_entrada, codigo_banco=None):
     _str = str_header+"\r\n"+str_header_lote+'\r\n'+str_segmento+'\r\n'+str_trailer_lote+'\r\n'+str_trailer_arquivo
 
     return _str
+  
