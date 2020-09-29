@@ -37,7 +37,7 @@ def generate(conf=None, arquivo_processamento=None, driver=None):
 
     conf_json = check_conf(conf)
     if( conf_json == False ):
-        return
+        return 
 
     odict_ha = ha.default_header_arquivo()    
     odict_hl = hl.default_header_lote()
@@ -69,7 +69,7 @@ def generate(conf=None, arquivo_processamento=None, driver=None):
     bla['segmento_a_contas'] = contas
 
     #manda processar
-    print ( rp.generate(bla), end='' ) 
+    print ( rp.generate(bla, conf_json['banco']), end='' ) 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-c", "--conf",     help="nome do arquivo de configuracao antes do '.prod.conf'")
