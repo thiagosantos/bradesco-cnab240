@@ -36,8 +36,7 @@ def default_header_lote():
 
     odict['empresa_endereco_logradouro'] =''
     odict['empresa_endereco_numero'] =''
-    odict['empresa_endereco_complemento'] =''
-    odict['empresa_endereco_bairro'] =''    
+    odict['empresa_endereco_complemento'] =''    
     odict['empresa_endereco_cidade'] =''
     odict['empresa_endereco_cep'] =''
     odict['empresa_endereco_cep_complemento'] =''

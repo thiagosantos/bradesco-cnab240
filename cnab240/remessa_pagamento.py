@@ -6,11 +6,14 @@ import cnab240.core.segmento_a as sega
 import cnab240.core.segmento_b as segb
 import cnab240.core.trailer_lote as tl
 
-def generate(odict_entrada, codigo_banco=None):
+def generate(odict_entrada, conf=None):
 
-    if(codigo_banco is None):
+    if(conf is None):
         print ("Código do banco é um campo obrigatorio")
         return None
+    
+    #codigo do banco
+    codigo_banco = conf['banco']
 
     lote = '1'
     odict_entrada['header_lote']['lote'] = lote
@@ -63,14 +66,14 @@ def generate(odict_entrada, codigo_banco=None):
         #endereco da empresa
         odic_segb['lote'] = lote
         odic_segb['sequencial_registro_lote'] = str(sequencial_registro+2)
-        odic_segb['dados_complementares_favorecido_logradouro'] = odict_entrada['header_lote']['empresa_endereco_logradouro'] #
-        odic_segb['dados_complementares_favorecido_numero'] = odict_entrada['header_lote']['empresa_endereco_numero'] #
-        odic_segb['dados_complementares_favorecido_complemento'] = odict_entrada['header_lote']['empresa_endereco_complemento'] #
-        odic_segb['dados_complementares_favorecido_bairro'] = odict_entrada['header_lote']['empresa_endereco_bairro'] #
-        odic_segb['dados_complementares_favorecido_cidade'] = odict_entrada['header_lote']['empresa_endereco_cidade'] #
-        odic_segb['dados_complementares_favorecido_cep'] = odict_entrada['header_lote']['empresa_endereco_cep'] #
-        odic_segb['dados_complementares_favorecido_cep_complemento'] = odict_entrada['header_lote']['empresa_endereco_cep_complemento'] #
-        odic_segb['dados_complementares_favorecido_estado'] = odict_entrada['header_lote']['empresa_endereco_estado'] #
+        odic_segb['dados_complementares_favorecido_logradouro'] = conf['empresa_endereco_logradouro'] #
+        odic_segb['dados_complementares_favorecido_numero'] = conf['empresa_endereco_numero'] #
+        odic_segb['dados_complementares_favorecido_complemento'] = conf['empresa_endereco_complemento'] #
+        odic_segb['dados_complementares_favorecido_bairro'] = conf['empresa_endereco_bairro'] #
+        odic_segb['dados_complementares_favorecido_cidade'] = conf['empresa_endereco_cidade'] #
+        odic_segb['dados_complementares_favorecido_cep'] = conf['empresa_endereco_cep'] #
+        odic_segb['dados_complementares_favorecido_cep_complemento'] = conf['empresa_endereco_cep_complemento'] #
+        odic_segb['dados_complementares_favorecido_estado'] = conf['empresa_endereco_estado'] #
 
         list_segmento_a.append(sega.parse(odic_sega))
         list_segmento_a.append(segb.parse(odic_segb))
