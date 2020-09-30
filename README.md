@@ -11,7 +11,7 @@ O código já foi testado para folha de pagamento com os seguintes bancos:
 ## bancointer-cnab240 (em teste)
 Suporte para o Banco Inter adicionado com um novo arquivo conf de exemplo graças a ajuda e observações do [@gusleig](https://github.com/gusleig).
 
-Há no padrão do Banco Inter uma particularidade quanto ao campo "Data Real" (P003) que diz respeito a data efetiva em que o pagamento foi feito. Esse campo deveria ser preenchido quando o campo "código" (G015) no header do arquivo fosse igual a 2. Sendo que o valor 2 é para arquivo de retorno e esse singelo script só gera o arquivo de remessa cujo código é 1. No entanto no teste feito pelo [@gusleig](https://github.com/gusleig) evidência que esse campo é obrigatório para o Banco Inter. 
+Há no padrão do Banco Inter uma particularidade quanto ao campo "Data Real" (P003) que diz respeito a data efetiva em que o pagamento foi feito. Esse campo deveria ser preenchido quando o campo "código" (G015) no header do arquivo fosse igual a 2. Sendo que o valor 2 é para arquivo de retorno e esse singelo script só gera o arquivo de remessa cujo código é 1. No entanto no teste feito pelo [@gusleig](https://github.com/gusleig) evidencia que esse campo é obrigatório para o Banco Inter. 
 
 
 ## bradesco-cnab240
