@@ -1,8 +1,8 @@
 
 # Python CNAB240 (remessa)
-Há duas formas de utilizar esse conjunto de código. A primeira é incorporando ao seu sistema como um pacote e fazendo as devidas chamadas aos metodos criados para utilizar dessa forma recomendo a leitura dos arquivos exec.py e ./cnab240/remessa_pagamento.py. A segunda forma é como um script chamando via linha de comando o exec.py ([mais detalhes de como usar](#utilização)).
+Há duas formas de utilizar esse conjunto de código. A primeira é incorporando ao seu projeto em python como um pacote e fazendo as devidas chamadas aos métodos criados, para utilizar dessa forma recomendo a leitura dos arquivos exec.py e ./cnab240/remessa_pagamento.py. 
 
-A segunda forma é, definitivamente, mais simples e mais rápida e não requer qualquer desenvolvimento bastando um arquivo csv ([conforme o modelo](#csv)) e chamar o script com os [devidos parâmetros](#Utilização), funciona tanto no Windows, Linux e Mac. Não tem qualquer dependência externa a não ser, obviamente, as bibliotecas do próprio Python.
+A segunda forma é como um script chamando via linha de comando o exec.py ([mais detalhes de como usar](#utilização)). Essa forma é, definitivamente, mais simples e mais rápida e não requer qualquer desenvolvimento bastando um arquivo csv ([conforme o modelo](#csv)) e chamar o script com os [devidos parâmetros](#Utilização), funciona tanto no Windows, Linux e Mac. Não tem qualquer dependência externa a não ser, obviamente, as bibliotecas do próprio Python 3.
 
 O código já foi testado para folha de pagamento com os seguintes bancos:
 - Bradesco
