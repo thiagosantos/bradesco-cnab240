@@ -1,9 +1,28 @@
-# bradesco-cnab240
+
+# Python CNAB240 (remessa)
+Há duas formas de utilizar esse conjunto de código. A primeira é incorporando ao seu sistema como um pacote e fazendo as devidas chamadas aos metodos criados para utilizar dessa forma recomendo a leitura dos arquivos exec.py e ./cnab240/remessa_pagamento.py. A segunda forma é como um script chamando via linha de comando o exec.py ([mais detalhes de como usar](#utilização)).
+
+A segunda forma é, definitivamente, mais simples e mais rápida e não requer qualquer desenvolvimento bastando um arquivo csv ([conforme o modelo](#csv)) e chamar o script com os [devidos parâmetros](#Utilização), funciona tanto no Windows, Linux e Mac. Não tem qualquer dependência externa a não ser, obviamente, as bibliotecas do próprio Python.
+
+O código já foi testado para folha de pagamento com os seguintes bancos:
+- Bradesco
+- Banco Inter (em teste)
+
+## bancointer-cnab240 (em teste)
+Suporte para o Banco Inter adicionado com um novo arquivo conf de exemplo graças a ajuda e observações do [@gusleig](https://github.com/gusleig).
+
+Há no padrão do Banco Inter uma particularidade quanto ao campo "Data Real" (P003) que diz respeito a data efetiva em que o pagamento foi feito. Esse campo deveria ser preenchido quando o campo "código" (G015) no header do arquivo fosse igual a 2. Sendo que o valor 2 é para arquivo de retorno e esse singelo script só gera o arquivo de remessa cujo código é 1. No entanto no teste feito pelo [@gusleig](https://github.com/gusleig) evidência que esse campo é obrigatório para o Banco Inter. 
+
+
+## bradesco-cnab240
 Padrão Bradesco Multipag CNAB240 para folha de pagamento, remessa apenas.
 
 No Bradesco Net Empresas, Transmissão de Arquivos, escolha a opção MULTIPAG (você precisa ter essa opção habilitada com a sua agência). Enviar por "FOLHA DE PAGAMENTO 240" não vai funcionar, palavra dita com experiência.
 
-O CNAB240 é um padrão definido pela FEBRABAN e implementado por bancos Brasileiros para a troca de informações.
+## cnab240
+
+O CNAB240 é um padrão definido pela FEBRABAN e implementado por bancos Brasileiros para a troca de informações. As informações abaixo são necessárias caso você utilize esse conjunto de código como um pacote no seu sistema, caso contrário pode pular para a configuração.
+
 A estrutura dele é dado:
 
 * Ter em mente:
