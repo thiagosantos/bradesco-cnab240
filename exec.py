@@ -60,6 +60,7 @@ def generate(conf=None, arquivo_processamento=None, driver=None):
     except Exception as e:
         #Caso nao consiga carregar o modulo
         print ("Driver '"+driver+"' não encontrado")
+        print (e)
         return
 
 
@@ -92,8 +93,4 @@ if not args.arquivo:
     print ("Arquivo de entrada é obrigatório")    
     exit()
 
-
 generate(args.conf, args.arquivo, args.driver)
-
-
-

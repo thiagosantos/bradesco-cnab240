@@ -5,6 +5,7 @@ import cnab240.core.trailer_arquivo as ta
 import cnab240.core.segmento_a as sega
 import cnab240.core.segmento_b as segb
 import cnab240.core.trailer_lote as tl
+import os
 
 def generate(odict_entrada, conf=None):
 
@@ -57,6 +58,8 @@ def generate(odict_entrada, conf=None):
 
         odic_sega['credito_data_pagamento'] = conta['data_pagamento'] #P009
         odic_sega['valor_pagamento'] = str(conta['valor_centavos']) #P010
+        odic_sega['credito_data_real'] = str(conta['data_pagamento'])
+        odic_sega['credito_valor_real'] = str(conta['valor_centavos'])
 
         #segmento b
         odic_segb['dados_complementares_favorecido_inscricao_tipo'] = '1' #G005
@@ -103,9 +106,13 @@ def generate(odict_entrada, conf=None):
 
     str_trailer_arquivo = ta.parse(odic_trailer_arquivo)
 
-    str_segmento = '\r\n'.join(list_segmento_a)
+    str_segmento = '\n'.join(list_segmento_a)
     #str_trailer = ta.trailer_arquivo( odict_entrada['trailer_arquivo'])
-    _str = str_header+"\r\n"+str_header_lote+'\r\n'+str_segmento+'\r\n'+str_trailer_lote+'\r\n'+str_trailer_arquivo
-
-    return _str
-  
+    _str = str_header+"\n"+str_header_lote+'\n'+str_segmento+'\n'+str_trailer_lote+'\n'+str_trailer_arquivo
+    utf_file(_str)
+    path = os.getcwd()
+    print("Arquivo saida_cnab240.txt gerado na pasta "+path)
+    
+def utf_file(string):
+    with open('saida_cnab240.txt', 'w', encoding='utf-8-sig') as f_out:
+        f_out.write(string)
