@@ -100,10 +100,10 @@ Arquivo em si que precisa ser gerado ( sem o cabeçalho dentro do próprio arqui
 Por enquanto esse é o único driver disponível para esse projeto, no entanto se você fizer um que tenha como entrada JSON, XML ou qualquer outro manda um pull request!
 
 # Utilização
-Por padrão o exec.py vai cuspir tudo no teu terminal (stdout) mas você consegue jogar esse buffer para um arquivo. Salvar ele para enviar para o banco.
+Por padrão o exec.py vai jogar esse buffer para um arquivo. Salve ele para enviar para o banco.
 
 ```shell
-python3 exec.py -c minhaempresa -a "tmp/funcionarios.csv" > saida_cnab240_052020.txt
+python3 exec.py -c minhaempresa -a "tmp/funcionarios.csv"
 ````
 
 ## Parâmetros do exec
